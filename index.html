@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cookie Clicker Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  🔊
+  <input id="volume" type="range" min="0" max="1" step="0.01" value="0.5">
+  <button id="muteBtn">Mute</button>
+
+  <button id="achBtn">Achievements</button>
+  <button id="saveBtn">Save</button>
+</div>
+
+<div class="game-container">
+
+  <div class="main-area">
+
+    <h1 class="title">🍪 Cookie Clicker Pro</h1>
+
+    <div class="stats">
+      <div id="cookieCount">Cookies: 0</div>
+      <div id="cps">Per Second: 0</div>
+    </div>
+
+    <div class="cookie-wrapper">
+      <div id="cookie" class="cookie"></div>
+    </div>
+
+  </div>
+
+  <div class="shop">
+    <h2>Upgrades</h2>
+    <div id="upgrades"></div>
+  </div>
+
+</div>
+
+<!-- ACHIEVEMENT POPUP -->
+<div id="achievement" class="achievement hidden"></div>
+
+<!-- ACHIEVEMENT MENU -->
+<div id="achMenu" class="menu hidden">
+  <h2>🏆 Achievements</h2>
+  <div id="achList"></div>
+  <button id="closeAch">Close</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
