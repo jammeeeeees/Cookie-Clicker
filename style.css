@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+  user-select: none;
+}
+
+body {
+  background: #0f1115;
+  color: white;
+  overflow: hidden;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+.top-bar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.top-bar button {
+  background: #222;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.top-bar button:hover {
+  background: #333;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.game-container {
+  display: flex;
+  height: 100vh;
+}
+
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: #ffd166;
+  margin-bottom: 20px;
+}
+
+.stats {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* =========================
+   COOKIE
+========================= */
+.cookie {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f4c542, #c97b1f);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.08s;
+}
+
+.cookie:active {
+  transform: scale(0.92);
+}
+
+/* COOKIE CRACK ANIMATION */
+.cookie.cracked {
+  animation: crack 0.25s linear;
+}
+
+@keyframes crack {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.9) rotate(-3deg); }
+  100% { transform: scale(1); }
+}
+
+/* COOKIE CHIPS */
+.cookie::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, #3b2314 4px, transparent 5px),
+    radial-gradient(circle at 60% 40%, #4a2c1a 3px, transparent 4px),
+    radial-gradient(circle at 70% 70%, #3b2314 4px, transparent 5px),
+    radial-gradient(circle at 40% 80%, #4a2c1a 3px, transparent 4px);
+}
+
+/* =========================
+   FLOAT TEXT
+========================= */
+.float {
+  position: absolute;
+  color: #ffd166;
+  pointer-events: none;
+  animation: floatUp 1s forwards;
+  font-weight: bold;
+}
+
+@keyframes floatUp {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-60px); }
+}
+
+/* =========================
+   SHOP
+========================= */
+.shop {
+  width: 300px;
+  background: #151922;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.upgrade {
+  background: #1f2430;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.upgrade:hover {
+  background: #2a3142;
+}
+
+/* =========================
+   PARTICLES
+========================= */
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #ffd166;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: pop 0.6s forwards;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: translateY(-80px) scale(0); opacity: 0; }
+}
+
+/* =========================
+   RIPPLE
+========================= */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transform: scale(0);
+  animation: ripple 0.5s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   ACHIEVEMENT POPUP
+========================= */
+.achievement {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: #222;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: 0.3s;
+  z-index: 1000;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* =========================
+   ACHIEVEMENT MENU (NEW)
+========================= */
+.menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1b1f2a;
+  padding: 20px;
+  border-radius: 12px;
+  width: 320px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 2000;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.menu h2 {
+  margin-bottom: 10px;
+  color: #ffd166;
+}
+
+.menu button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #333;
+  color: white;
+  transition: 0.2s;
+}
+
+.menu button:hover {
+  background: #444;
+}
+
+/* scrollbar (optional polish) */
+.shop::-webkit-scrollbar,
+.menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.shop::-webkit-scrollbar-thumb,
+.menu::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
